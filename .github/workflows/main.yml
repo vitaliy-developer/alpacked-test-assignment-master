@@ -24,8 +24,8 @@ jobs:
         npm i gatsby -g
         gatsby build
       env:
-        ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
-        SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        SPACE_ID: ${{ secrets.SPACE_ID }}
         MAILCHIMP_ENDPOINT: 'https://example.us10.list-manage.com/subscribe/post?u=123'
 
     - name: Configure AWS Credentials
