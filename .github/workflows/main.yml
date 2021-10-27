@@ -32,7 +32,7 @@ jobs:
 
     # Check out the new branch
     - name: checkout dist
-      uses: actions/checkout@master
+      uses: actions/checkout@main
       with:
         ref: dist
 
