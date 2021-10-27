@@ -17,18 +17,26 @@ jobs:
         node-version: '14.x'
 
     # Run the build script which populates the ./dist folder
-    - name: build
-      run: |
-        npm install
-
+    # - name: build
+    #   run: |
+    #     npm install
+    #     npm run setup
+    #     gatsby build
+        
+    - name: gatsby
+      shell_command:
+        npm_install: npm install
+        npm_run_setup: npm run setup
+        change_dir: cd ./public
+        gatsby_build: gatsby build
 
     # Merge ./dist into the 'gh-pages' branch (dist in this case)
-    # - name: update dist branch
-    #   uses: peaceiris/actions-gh-pages@v2.3.1
-    #   env:
-    #     PERSONAL_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-    #     PUBLISH_BRANCH: dist
-    #     PUBLISH_DIR: ./public
+    - name: update dist branch
+      uses: peaceiris/actions-gh-pages@v2.3.1
+      env:
+        PERSONAL_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        PUBLISH_BRANCH: dist
+        PUBLISH_DIR: ./public
 
     # Check out the new branch
     - name: checkout dist
