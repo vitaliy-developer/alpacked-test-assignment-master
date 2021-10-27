@@ -22,13 +22,14 @@ jobs:
     #     npm install
     #     npm run setup
     #     gatsby build
-        
-    - name: gatsby
-      shell_command:
-        npm_install: npm install
-        npm_run_setup: npm run setup
-        change_dir: cd ./public
-        gatsby_build: gatsby build
+
+    # Run the build script which populates the ./dist folder 
+    - name: build gatsby
+      run: |
+        npm install
+        npm run setup
+        cd ./public
+        gatsby build
 
     # Merge ./dist into the 'gh-pages' branch (dist in this case)
     - name: update dist branch
